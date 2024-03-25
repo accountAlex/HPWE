@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    background-color: #17002F;
+}
+
+.custom-navbar, .navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #007bff;
+}
+
+.container-fluid {
+    height: 100%;
+    padding-left: 0;
+    display: flex; /* Включаем flexbox */
+    justify-content: center; /* Горизонтальное выравнивание по центру */
+    align-items: center;
+    padding-right: 0;
+}
+
+.flashcard-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.flashcard {
+    width: 585px;
+    height: 585px;
+    perspective: 1000px;
+    margin: 20px;
+    display: none;
+}
+
+.flashcard.show {
+    display: block;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flip {
+    transform: rotateY(180deg);
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    line-height: 1.6;
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+.front {
+    background-color: #DDA0DD;
+}
+
+.back {
+    background-color: #EE82EE;
+}
+
+.next-button {
+    padding: 10px 20px;
+    margin-top: 50px;
+    font-size: 16px;
+    color: #FFFFFF;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: fixed;
+    left: 50%;
+    bottom: 250px;
+    transform: translateX(-50%);
+}
+
+.next-button:hover {
+    background-color: #6c4398;
+}

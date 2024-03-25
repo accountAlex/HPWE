@@ -1,0 +1,73 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #17002F;
+}
+
+.custom-navbar, .navbar {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: #007bff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+.title {
+    font-size: calc(16px + 2vw); /* Адаптивный размер шрифта */
+    margin-bottom: 20px;
+    color: #E6E6FA;
+    text-align: center;
+}
+
+.button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    color: #000000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Плавное изменение цвета */
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+/* Медиа-запросы для разных размеров экранов */
+@media (max-width: 768px) {
+    .title {
+        font-size: calc(14px + 4vw); /* Увеличение размера шрифта для мобильных устройств */
+    }
+
+    .container {
+        padding: 20px; /* Добавление отступов для меньших экранов */
+    }
+
+    .button {
+        padding: 8px 16px; /* Уменьшение размера кнопок */
+        font-size: 14px; /* Уменьшение размера текста в кнопках */
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        flex-direction: column; /* Изменение направления flex-контейнера для маленьких экранов */
+    }
+
+    .custom-navbar, .navbar {
+        position: relative; /* Отмена sticky позиционирования для маленьких экранов */
+    }
+}

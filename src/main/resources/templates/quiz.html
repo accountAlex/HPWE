@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcards</title>
+    <link rel="stylesheet" href="flashcards.css">
+</head>
+<body>
+<div class="container">
+    <div class="flashcard-container" id="flashcard-container">
+        <!-- Удалены атрибуты onclick с карточек -->
+        <div class="flashcard" id="flashcard1">
+            <div class="card">
+                <div class="front" style="background-color: #DDA0DD;">
+                    <p>Возведите четыре в квадрат</p>
+                </div>
+                <div class="back" style="background-color: #EE82EE;">
+                    <p>Ответ: 16</p>
+                </div>
+            </div>
+        </div>
+        <div class="flashcard" id="flashcard2">
+            <div class="card">
+                <div class="front" style="background-image: url('/image/Когнитив-2.jpg');">
+                    <p>Сколько будет 5*5?</p>
+                </div>
+                <div class="back back-image" style="background-image: url('/image/ког-2.jpg');">
+                    <p>Ответ: 25</p>
+                </div>
+            </div>
+        </div>
+        <div class="flashcard" id="flashcard3">
+            <div class="card">
+                <div class="front" style="background-color: #00FFFF;">
+                    <p>Какой язык программирования используется для создания веб-приложений?</p>
+                </div>
+                <div class="back" style="background-color: #FFA07A;">
+                    <p>Ответ: JavaScript</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Кнопка для перелистывания карточек -->
+    <button class="next-button">Следующая карточка</button>
+</div>
+
+<script src="flashcards.js"></script>
+</body>
+</html>
