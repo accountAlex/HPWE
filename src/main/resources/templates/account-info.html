@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+<div>
+  <form th:method="post" th:action="@{/settings/account}" th:object="${accountChangeForm}">
+    <h1>Системная информация</h1>
+    <div>
+      <label>Никнейм
+        <input th:id="name" type="text" th:name="name" th:value="${authUser.getName()}"/>
+      </label>
+    </div>
+    <div>
+      <label>Почта
+        <input th:id="email" type="email" th:name="email" th:value="${authUser.getEmail()}"/>
+      </label>
+    </div>
+    <div>
+      <input id="csrfToken1" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+      <button type="submit">Сохранить</button>
+    </div>
+  </form>
+</div>
+<div>
+  <form th:method="post" th:action="@{/settings/account/delete}">
+    <input id="csrfToken2" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+    <button type="submit" class="btn btn-danger">Удалить</button>
+  </form>
+</div>
+<div>
+  <a href="/settings/personal">Обо мне</a>
+</div>
+<div>
+  <a href="/settings/system">Пароль</a>
+</div>
+</body>
+</html>
