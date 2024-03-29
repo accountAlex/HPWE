@@ -15,19 +15,26 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/flashcards">Quiz <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto"> <!-- Используйте ms-auto для Bootstrap 5 -->
-                <li class="nav-item">
-                    <a class="nav-link" href="/sign-in">Войти <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/sign-up">Регистрация <span class="sr-only">(current)</span></a>
-                </li>
-            </ul>
+            <div th:if="${#authorization.expression('isAuthenticated()')}">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/flashcards">Quiz <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="navbar-nav ml-auto">
+                        <a class="nav-link" href="/profile">Profile <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
+            <div th:if="${not #authorization.expression('isAuthenticated()')}">
+                <ul class="navbar-nav ml-auto"> <!-- Используйте ms-auto для Bootstrap 5 -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sign-in">Войти <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/sign-up">Регистрация <span class="sr-only">(current)</span></a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 </div>

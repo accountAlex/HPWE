@@ -89,30 +89,35 @@
 <!--</body>-->
 <!--</html>-->
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
+    <link rel="stylesheet" href="stylesheets/sign-up.css">
 </head>
 <body>
-<form method="post" action="sign-up" th:object="${signUpForm}">
-    <h1>Регистрация</h1>
-    <div>
-        <label>Email
-            <input type="email" th:field="*{email}"/>
-        </label>
-    </div>
-    <div>
-        <label>Password
-            <input type="password" th:field="*{password}"/>
-        </label>
-    </div>
-    <div>
-        <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
-        <button type="submit">Зарегистрироваться</button>
-    </div>
-</form>
-<button onclick="location.href='/sign-in'">Вход</button>
-<button onclick="location.href='/'">Главная страница</button>
+<div class="container">
+    <form method="post" action="sign-up" th:object="${signUpForm}">
+        <h1>Регистрация</h1>
+        <div class="form-section">
+            <label>Email
+                <input type="email" th:field="*{email}" required/>
+            </label>
+        </div>
+        <div class="form-section">
+            <label>Password
+                <input type="password" th:field="*{password}" required/>
+            </label>
+        </div>
+        <div class="form-section">
+            <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+            <button type="submit" class="btn">Зарегистрироваться</button>
+        </div>
+        <div class="link-buttons">
+            <button type="button" onclick="location.href='/sign-in'">Вход</button>
+            <button type="button" onclick="location.href='/'">Главная страница</button>
+        </div>
+    </form>
+</div>
 </body>
 </html>

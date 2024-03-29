@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Регистрация</title>
+    <title>Вход</title>
+    <link rel="stylesheet" href="stylesheets/sign-in.css">
 </head>
 <body>
 <form method="post" action="sign-in">
     <h1>Вход</h1>
     <div>
         <label>Email
-            <input th:id="email" type="email" th:name="username"/>
+            <input id="email" type="email" name="username" required/>
         </label>
     </div>
     <div>
         <label>Password
-            <input th:id="password" type="password" th:name="password"/>
+            <input id="password" type="password" name="password" required/>
         </label>
     </div>
-    <div>
-        <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
-        <button type="submit" class="btn">Войти</button>
+    <div class="checkbox-label">
+        <label>
+            <input type="checkbox" name="remember"/>
+            Remember me
+        </label>
+        <a href="#">Forgot?</a>
     </div>
-
+    <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+    <button type="submit" class="btn">Войти</button>
 </form>
-<button onclick="location.href='/sign-up'">Зарегистрироваться</button>
-<button onclick="location.href='/'">Главная страница</button>
 </body>
 </html>
