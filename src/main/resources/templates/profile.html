@@ -3,23 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <title>Профиль</title>
+    <link rel="stylesheet" href="stylesheets/profile.css">
 </head>
 <body>
-<div>
-    <h1>Профиль</h1>
-    <div>Обо мне:
-        <h3>Никнейм</h3>
-        <p th:text="${authUser.getName()}"></p>
-        <h3>Почта</h3>
-        <p th:text="${authUser.getEmail()}"></p>
+<div class="container">
+    <header>
+        <h1>Профиль</h1>
+    </header>
+    <div class="content">
+        <div>Обо мне:
+            <h3>Никнейм</h3>
+            <p th:text="${authUser.getName()}"></p>
+            <h3>Почта</h3>
+            <p th:text="${authUser.getEmail()}"></p>
+        </div>
+        <a href="/settings/personal">Настройки</a>
     </div>
-</div>
-<a href="/settings/personal">Настройки</a>
-<div>
-    <form th:method="post" th:action="@{/logout}">
-        <input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-        <button type="submit">Выйти</button>
-    </form>
+    <div class="footer">
+        <form th:method="post" th:action="@{/logout}">
+            <input id="csrfToken" type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <button type="submit">Выйти</button>
+        </form>
+    </div>
 </div>
 </body>
 </html>

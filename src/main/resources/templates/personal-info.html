@@ -3,36 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <title>Редактирование</title>
+    <link rel="stylesheet" href="/stylesheets/personal.css">
 </head>
 <body>
-<div>
+<div class="container">
     <form th:method="post" th:action="@{/settings/personal}" th:object="${personalChangeForm}">
         <h1>Личная информация</h1>
-        <div>
-            <label>Имя
-                <input th:id="firstName" type="text" th:name="firstName" th:value="${authUser.getFirstName()}"/>
-            </label>
-        </div>
-        <div>
-            <label>Фамилия
-                <input th:id="surname" type="text" th:name="surname" th:value="${authUser.getSurname()}"/>
-            </label>
-        </div>
-        <div>
-            <label>Телефон
-                <input th:id="phone" type="text" th:name="phone" th:value="${authUser.getPhone()}"/>
-            </label>
-        </div>
-        <div>
-            <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
-            <button type="submit">Сохранить</button>
-        </div>
+        <label>Имя
+            <input th:id="firstName" type="text" th:name="firstName" th:value="${authUser.getFirstName()}"/>
+        </label>
+        <label>Фамилия
+            <input th:id="surname" type="text" th:name="surname" th:value="${authUser.getSurname()}"/>
+        </label>
+        <label>Телефон
+            <input th:id="phone" type="text" th:name="phone" th:value="${authUser.getPhone()}"/>
+        </label>
+        <input id="csrfToken" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" type="hidden"/>
+        <button type="submit">Сохранить</button>
     </form>
-</div>
-<div>
     <a href="/settings/account">Аккаунт</a>
-</div>
-<div>
     <a href="/settings/system">Пароль</a>
 </div>
 </body>
